@@ -8,10 +8,9 @@ const ProjectCard = ({ value }) => {
   const {
     name,
     description,
-    svn_url,
-    stargazers_count,
-    languages_url,
-    pushed_at,
+    android_url,
+    ios_url,
+    technical_stack,
   } = value;
   return (
     <Col md={6}>
@@ -19,23 +18,35 @@ const ProjectCard = ({ value }) => {
         <Card.Body>
           <Card.Title as="h5">{name || <Skeleton />} </Card.Title>
           <Card.Text>{(!description) ? "" : description || <Skeleton count={3} />} </Card.Text>
-          {svn_url ? <CardButtons svn_url={svn_url} /> : <Skeleton count={2} />}
+          { android_url || ios_url ?
+            <StoreButtons android_url={android_url} ios_url={ios_url} />
+            : <p/>
+          }
           <hr />
-          {languages_url ? (
-            <Language languages_url={languages_url} repo_url={svn_url} />
-          ) : (
-            <Skeleton count={3} />
-          )}
-          {value ? (
-            <CardFooter star_count={stargazers_count} repo_url={svn_url} pushed_at={pushed_at} />
-          ) : (
-            <Skeleton />
-          )}
+          { 
+            technical_stack ? <TechnicalStack values={technical_stack} /> : <Skeleton count={3} />
+          }
         </Card.Body>
       </Card>
     </Col>
   );
 };
+
+const StoreButtons = ({ android_url, ios_url }) => {
+  return (
+    <div className="d-grid gap-2 d-md-block">
+      <a
+        href={android_url}
+        className="btn btn-outline-secondary mx-2"
+      >
+        <i className="fab fa-android" /> Android
+      </a>
+      <a href={ios_url} target=" _blank" className="btn btn-outline-secondary mx-2">
+        <i className="fab fa-apple" /> iOS
+      </a>
+    </div>
+  );
+}
 
 const CardButtons = ({ svn_url }) => {
   return (
@@ -94,6 +105,23 @@ const Language = ({ languages_url, repo_url }) => {
             </span>
           </a>
 
+        ))
+        : "code yet to be deployed."}
+    </div>
+  );
+};
+
+const TechnicalStack = ({ values }) => {
+  return (
+    <div className="pb-3">
+      Technical stack:{" "}
+      {values.length
+        ? values.map((value) => (
+          <a key={value} className="card-link">
+            <span className="badge bg-light text-dark">
+              {value}
+            </span>
+          </a>
         ))
         : "code yet to be deployed."}
     </div>

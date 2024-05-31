@@ -10,9 +10,10 @@ import {
   getInTouch,
   experiences
 } from "./editable-stuff/config.js";
+import { projects } from "./editable-stuff/projects.jsx";
 import MainBody from "./components/home/MainBody";
 import AboutMe from "./components/home/AboutMe";
-import Project from "./components/home/Project";
+import Projects from "./components/home/Project";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Skills from "./components/home/Skills";
@@ -44,17 +45,20 @@ const Home = React.forwardRef((props, ref) => {
       )}
       {
         experiences.show && (
-          <Experience experiences={experiences}/>
+          <Experience experiences={experiences} />
         )
       }
-      {repos.show && (
+      {/* {repos.show && (
         <Project
           heading={repos.heading}
           username={repos.gitHubUsername}
           length={repos.reposLength}
           specfic={repos.specificRepos}
         />
-      )}
+      )} */}
+      <Projects
+        projects={projects}
+      />
       {leadership.show && (
         <Leadership
           heading={leadership.heading}
@@ -70,7 +74,7 @@ const Home = React.forwardRef((props, ref) => {
           softSkills={skills.softSkills}
         />
       )}
-      
+
     </>
   );
 });
