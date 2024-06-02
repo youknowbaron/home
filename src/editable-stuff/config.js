@@ -9,7 +9,7 @@ const mainBody = {
   firstName: "Võ",
   middleName: "Xuân",
   lastName: "Bách",
-  message: "| Programmer | Software Engineer | Mobile Developer |",
+  message: "| Programmer | Mobile Developer | Outdoorman |",
   icons: [
     {
       image: "fa-github",
@@ -49,23 +49,47 @@ const about = {
   heading: "About Me",
   imageLink: require("../editable-stuff/avatar.JPG"),
   imageSize: 375,
-  message:
-    "Mobile developer with 5+ years of experience crafting quality, maintainable code for native and cross-platform applications. Fluent in Flutter Framework, iOS development, delivering reliable and performant solutions that exceed requirements. Passionate about learning new things and constantly seeking opportunities to discover my potential.",
-  // resume: "https://docs.google.com/document/d/13_PWdhThMr6roxb-UFiJj4YAFOj8e_bv3Vx9UHQdyBQ/edit?usp=sharing",
+  messages:
+    [
+      "My name is Vo Xuan Bach, Senior Mobile Developer with 5+ years of experience crafting quality, maintainable code for native and cross-platform applications. Fluent in Flutter Framework and iOS development, delivering reliable and performant solutions that exceed requirements. ",
+      "I am looking for opportunities as a software engineer with an expert team of developers who will help advance my career progression to a higher position.",
+    ],
   resume: require("../editable-stuff/resume.pdf"),
 };
 
-// PROJECTS SECTION
-// Setting up project lenght will automatically fetch your that number of recently updated projects, or you can set this field 0 to show none.
-//      i.e: reposLength: 0,
-// If you want to display specfic projects, add the repository names,
-//      i.e ["repository-1", "repo-2"]
-const repos = {
+const projects = {
   show: true,
   heading: "Recent Projects",
-  gitHubUsername: "youknowbaron", //i.e."johnDoe12Gh"
-  reposLength: 4,
-  specificRepos: [],
+  data: [
+    {
+      name: "SEKONIC LD",
+      description: "Connecting to the metering device via Bluetooth (BLE) 5.0. Triggering measurement and receiving photometric values from the connected device.",
+      android_url: "",
+      ios_url: "",
+      technical_stack: ["Swift", "SwiftUI", "MVVM", "CoreBluetooth", "Swinject", "SQLite", "Charts", "Render PDF", "Localizations", "CI/CD"],
+    },
+    {
+      name: "Wherever",
+      description: "Finding famous spots for traveling. Able to download spot information and view it in offline mode.",
+      android_url: "",
+      ios_url: "",
+      technical_stack: ["Flutter", "Riverpod", "GoRouter", "Dio", "Hive", "RxDart", "Google Maps", "flutter_downloader", "Localizations", "Firebase", "CI/CD"],
+    },
+    {
+      name: "GREET",
+      description: "Organizing a streaming, inviting friends, and selling tickets. Enjoying watching videos together while having a conversation with up to 8 people.",
+      android_url: "",
+      ios_url: "",
+      technical_stack: ["Swift", "UIKit", "Alamofire", "Amplify", "Agora", "RxSwift", "RxFlow", "ReactorKit", "Firebase"],
+    },
+    {
+      name: "TWG+",
+      description: "The application provides information about TWG’s hospital system also the doctors belong to the group. Providing quick booking appointments for medical examinations and getting advice from doctors.",
+      android_url: "https://play.google.com/store/apps/details?id=vn.com.twgroup.twgroup_healthcare",
+      ios_url: "https://apps.apple.com/us/app/id1518166857",
+      technical_stack: ["Flutter", "BLoC Pattern", "Dio", "Geolocator", "SQLite", "WebView", "Firebase"],
+    },
+  ]
 };
 
 // Leadership SECTION
@@ -75,20 +99,20 @@ const leadership = {
   message:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus arcu bibendum at varius. Libero justo laoreet sit amet cursus sit amet. Imperdiet dui accumsan sit amet nulla facilisi morbi. At auctor urna nunc id. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Et magnis dis parturient montes nascetur ridiculus mus mauris. In nisl nisi scelerisque eu ultrices vitae auctor. Mattis nunc sed blandit libero volutpat sed cras ornare. Pulvinar neque laoreet suspendisse interdum consectetur libero.",
   images: [
-    { 
-      img: require("../editable-stuff/hashirshoaeb.png"), 
-      label: "First slide label", 
-      paragraph: "Nulla vitae elit libero, a pharetra augue mollis interdum." 
+    {
+      img: require("../editable-stuff/hashirshoaeb.png"),
+      label: "First slide label",
+      paragraph: "Nulla vitae elit libero, a pharetra augue mollis interdum."
     },
-    { 
-      img: require("../editable-stuff/hashirshoaeb.png"), 
-      label: "Second slide label", 
-      paragraph: "Nulla vitae elit libero, a pharetra augue mollis interdum." 
+    {
+      img: require("../editable-stuff/hashirshoaeb.png"),
+      label: "Second slide label",
+      paragraph: "Nulla vitae elit libero, a pharetra augue mollis interdum."
     },
   ],
   imageSize: {
-    width:"615",
-    height:"450"
+    width: "615",
+    height: "450"
   }
 };
 
@@ -123,23 +147,66 @@ const getInTouch = {
   show: true,
   heading: "Get In Touch",
   message:
-    "I'm currently looking for full-time Software Engineering or Machine Learning opportunities! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at",
+    "I'm currently looking for full-time Mobile Developer opportunities! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at",
   email: "vobach1997ts@gmail.com",
 };
 
+const showExperiencesDetails = true;
 const experiences = {
   show: true,
   heading: "Experiences",
+  showDetails: false,
   data: [
     {
-      role: 'Software Engineer',// Here Add Company Name
-      companylogo: require('../assets/img/dell.png'),
-      date: 'June 2018 – Present',
+      title: "04/2021 - Present",
+      cardTitle: "Senior Mobile Developer",
+      cardSubtitle: "Execution Lab",
+      cardDetailedText: showExperiencesDetails ? [
+        "• Developing hybrid and native mobile applications.",
+        "• Setting up CI/CD for fast distribution using GitHub Actions and Fastlane.",
+        "• Releasing applications to Google Play and App Store.",
+        "• Organizing workshops to share knowledge about technology and lifestyle.",
+      ] : [],
     },
     {
-      role: 'Front-End Developer',
-      companylogo: require('../assets/img/boeing.png'),
-      date: 'May 2017 – May 2018',
+      title: "03/2020 - 03/2021",
+      cardTitle: "Mobile Developer",
+      cardSubtitle: "IT Department - Technical World Group",
+      cardDetailedText: showExperiencesDetails ? [
+        "• Developing internal software, mobile applications.",
+        "• Using Flutter with BLoC Pattern to build hybrid apps.",
+      ] : [],
+    },
+    {
+      title: "08/2019 - 02/2020",
+      cardTitle: "Android Developer",
+      cardSubtitle: "Cloud Nine Solutions",
+      cardDetailedText: showExperiencesDetails ? [
+        "• Working with Maps SDKs: Google Maps, ZDC Map, Map Box.",
+        "• Implementing ISMS to manage and secure information.",
+        "• Attending weekly workshops about technology, life, experiences, ...",
+      ] : [],
+    },
+    {
+      title: "08/2018 - 07/2019",
+      cardTitle: "Android Developer",
+      cardSubtitle: "VINOVA",
+      cardDetailedText: showExperiencesDetails ? [
+        "• Developing internal software, mobile applications.",
+        "• Maintaining and upgraded old applications.",
+        "• Working with CI/CD Jenkins, Fastlane.",
+        "• Using advanced techniques such as Kotlin and Android Jetpack.",
+        "• Learning and sharing Android techniques in seminar / workshop weekly.",
+      ] : [],
+    },
+    {
+      title: "06/2018 - 07/2018",
+      cardTitle: "Android Intern",
+      cardSubtitle: "VINOVA",
+      cardDetailedText: showExperiencesDetails ? [
+        "• Learning about developing Android applications.",
+        "• Building small projects."
+      ] : [],
     },
   ]
 }
@@ -149,4 +216,4 @@ const experiences = {
 //   show: false,
 // };
 
-export { navBar, mainBody, about, repos, skills, leadership, getInTouch, experiences };
+export { navBar, mainBody, about, projects, skills, leadership, getInTouch, experiences };

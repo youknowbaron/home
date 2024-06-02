@@ -4,13 +4,12 @@ import {
   navBar,
   mainBody,
   about,
-  repos,
+  projects,
   leadership,
   skills,
   getInTouch,
   experiences
 } from "./editable-stuff/config.js";
-import { projects } from "./editable-stuff/projects.jsx";
 import MainBody from "./components/home/MainBody";
 import AboutMe from "./components/home/AboutMe";
 import Projects from "./components/home/Project";
@@ -22,14 +21,14 @@ import Skills from "./components/home/Skills";
 import GetInTouch from "./components/home/GetInTouch.jsx";
 import Leadership from "./components/home/Leadership.jsx";
 
-import Experience from "./components/home/Experience";
+import ExperienceTimeline from "./components/home/ExperienceTimeline.jsx";
 
 const Home = React.forwardRef((props, ref) => {
   return (
     <>
       <MainBody
         gradient={mainBody.gradientColors}
-        title={`${mainBody.firstName} ${mainBody.middleName} ${mainBody.lastName}`}
+        title={`Hi, I'm ${mainBody.firstName} ${mainBody.middleName} ${mainBody.lastName}`}
         message={mainBody.message}
         icons={mainBody.icons}
         ref={ref}
@@ -37,7 +36,7 @@ const Home = React.forwardRef((props, ref) => {
       {about.show && (
         <AboutMe
           heading={about.heading}
-          message={about.message}
+          messages={about.messages}
           link={about.imageLink}
           imgSize={about.imageSize}
           resume={about.resume}
@@ -45,20 +44,17 @@ const Home = React.forwardRef((props, ref) => {
       )}
       {
         experiences.show && (
-          <Experience experiences={experiences} />
+          <ExperienceTimeline heading={experiences.heading} items={experiences.data} />
         )
       }
-      {/* {repos.show && (
-        <Project
-          heading={repos.heading}
-          username={repos.gitHubUsername}
-          length={repos.reposLength}
-          specfic={repos.specificRepos}
-        />
-      )} */}
-      <Projects
-        projects={projects}
-      />
+      {
+        projects.show && (
+          <Projects
+            heading={projects.heading}
+            projects={projects.data}
+          />
+        )
+      }
       {leadership.show && (
         <Leadership
           heading={leadership.heading}

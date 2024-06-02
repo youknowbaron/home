@@ -39,10 +39,10 @@ const StoreButtons = ({ android_url, ios_url }) => {
         href={android_url}
         className="btn btn-outline-secondary mx-2"
       >
-        <i className="fab fa-android" /> Android
+        <i className="fab fa-android" /> Google Play
       </a>
       <a href={ios_url} target=" _blank" className="btn btn-outline-secondary mx-2">
-        <i className="fab fa-apple" /> iOS
+        <i className="fab fa-apple" /> App Store
       </a>
     </div>
   );
